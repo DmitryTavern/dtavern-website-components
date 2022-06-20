@@ -1,0 +1,17 @@
+/*=============== Form feedback component ===============*/
+
+.#{$form-feedback--class} {
+	display: none;
+	font-size: 12px;
+	margin-top: 4px;
+
+	&_type {
+		&_error {
+			color: $form-feedback--error-color;
+		}
+	}
+}
+
+.#{$form-feedback--error-class} ~ .#{$form-feedback--class} {
+	display: block;
+}

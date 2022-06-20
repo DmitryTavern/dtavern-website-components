@@ -1,0 +1,34 @@
+/*=============== Form group prefix component ===============*/
+@use 'sass:map';
+
+.#{$form-group-prefix--class} {
+	display: flex;
+	align-items: center;
+	padding: $form-control--padding-default;
+	border-right: $form-control--border-size solid $form-control--border-color;
+
+	&_type {
+		&_icon {
+			img,
+			svg {
+				max-width: 16px;
+				max-height: 16px;
+				width: 16px;
+				height: 16px;
+			}
+		}
+	}
+}
+
+@each $label, $map in $form-control--sizes {
+	@if $label != 'default' {
+		.#{$form-group--class}_size_#{$label} > .#{$form-group-prefix--class} {
+			padding: map.get($map, 'padding');
+		}
+	}
+}
+
+.#{form-group--class} > .#{form-group-prefix--class} {
+	padding-bottom: 0;
+	padding-top: 0;
+}

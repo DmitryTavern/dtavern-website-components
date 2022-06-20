@@ -1,0 +1,10 @@
+//- Props:
+//-   - for: string
+//-   - classes: string
+//-   - attrs: object
+
+mixin form-label(props={})
+	- var tagClass = 'form-label'
+
+	label(for=props.for, class=tagClass, class=props.classes)&attributes(props.attrs)
+		block

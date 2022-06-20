@@ -1,0 +1,13 @@
+//- Props:
+//-   - tag: string
+//-   - type: string
+//-   - attrs: object
+
+mixin form-group-suffix(props={})
+	-
+		var tag = props.tag || 'div'
+		var tagClass = 'form-group-suffix'
+		var tagTypeClass = props.type ? tagClass + '_type_' + props.type : ''
+
+	#{tag}(class=tagClass, class=props.classes, class=tagTypeClass)&attributes(props.attrs)
+		block

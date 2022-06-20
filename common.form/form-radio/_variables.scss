@@ -1,0 +1,19 @@
+$form-radio--class: 'form-radio';
+$form-radio--wrapper-class: 'form-radio-wrapper';
+$form-radio--checked-class: 'is-checked';
+$form-radio--error-class: 'is-error';
+
+$form-radio--time: 0.24s;
+
+$form-radio--color: #e9e9e9;
+$form-radio--color-checked: #969696;
+$form-radio--background: #fff;
+
+$form-radio--size: 20px;
+$form-radio--round-size: 10px;
+$form-radio--border-size: 1px;
+
+$form-radio--position: math.div(
+	$form-radio--size - $form-radio--round-size - ($form-radio--border-size * 2),
+	2
+);

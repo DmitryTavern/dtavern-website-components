@@ -1,0 +1,8 @@
+mixin breadcrumbs(array)
+	ul.breadcrumbs
+		each item, index in array
+			if array.length - 1 !== index
+				li
+					a(href=item.href) #{ item.title }
+					if array.length - 2 === index
+						span.breadcrumb_last #{ array[array.length - 1].title }

@@ -1,0 +1,20 @@
+.btn {
+	transition: all $btn--time;
+	display: inline-block;
+	font-family: inherit;
+	font-size: inherit;
+	font-weight: inherit;
+	border: none;
+	outline: none;
+	background: none;
+	cursor: pointer;
+	text-align: center;
+
+	&:disabled {
+		cursor: default;
+	}
+}
+
+.btn-round {
+	border-radius: 50%;
+}

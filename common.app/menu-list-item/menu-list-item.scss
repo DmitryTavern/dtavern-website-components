@@ -1,0 +1,13 @@
+/*=============== Menu list item component ===============*/
+
+.#{$menu-list-item--class} {
+	> a,
+	> button {
+		text-align: left;
+		width: 100%;
+		display: block;
+		padding: 8px 0;
+		cursor: pointer;
+		border-bottom: 1px solid #eee;
+	}
+}

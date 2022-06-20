@@ -1,0 +1,13 @@
+//- Props:
+//-   - tag: string
+//-   - size: string
+//-   - classes: string
+
+mixin form-group(props={})
+	-
+		var tag = props.tag || 'div'
+		var tagClass = 'form-group'
+		var tagSizeClass = props.size ? tagClass + '_size_' + props.size : ''
+
+	#{tag}(class=tagClass, class=tagSizeClass, class=props.classes)&attributes(props.attrs)
+		block

@@ -1,0 +1,55 @@
+/*=============== Form radio component ===============*/
+@use 'sass:math';
+
+.#{$form-radio--class} {
+	transition: border-color $form-radio--time;
+	margin-top: calc((var(--radio-line-height) - #{$form-radio--size}) / 2);
+	min-width: $form-radio--size;
+	min-height: $form-radio--size;
+	width: $form-radio--size;
+	height: $form-radio--size;
+	border: $form-radio--border-size solid $form-radio--color;
+	background-color: $form-radio--background;
+	border-radius: 50%;
+	margin-right: 10px;
+	appearance: none;
+
+	&::before {
+		transition: opacity $form-radio--time;
+		content: '';
+		display: block;
+		margin-top: $form-radio--position;
+		margin-left: $form-radio--position;
+		width: $form-radio--round-size;
+		height: $form-radio--round-size;
+		background-color: #000;
+		border-radius: 50%;
+		opacity: 0;
+	}
+}
+
+.#{$form-radio--wrapper-class} {
+	--radio-line-height: #{$form-radio--size};
+	display: flex;
+	align-items: flex-start;
+	line-height: var(--radio-line-height);
+	cursor: pointer;
+
+	&.#{$form-radio--checked-class} {
+		> .#{$form-radio--class} {
+			border-color: $form-radio--color-checked;
+
+			&::before {
+				opacity: 1;
+			}
+		}
+	}
+
+	&.#{$form-radio--error-class} {
+		color: $color-error;
+
+		> .#{$form-radio--class} {
+			border-color: $color-error;
+		}
+	}
+}

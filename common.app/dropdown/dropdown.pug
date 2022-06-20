@@ -1,0 +1,14 @@
+//- Props:
+//-   - id: string
+//-   - tag: string
+//-   - classes: string
+//-   - position: string (bottom-left, bottom-right, top-left, top-right)
+//-		- attrs: object
+
+mixin dropdown(props={})
+	-
+		var tag = props.tag || 'div'
+		var tagClass = 'dropdown'
+
+	#{tag}(id=props.id, class=tagClass, class=props.position, class=props.classes)&attributes(props.attrs)
+		block

@@ -1,0 +1,13 @@
+{
+	"version": "1.0.0",
+	"name": "form-select",
+	"namespace": "global",
+	"depends": [
+		"common.app/dropdown",
+		"common.app/menu-list",
+		"common.app/menu-list-item",
+		"common.form/form-group",
+		"common.form/form-control",
+		"common.form/form-group-suffix"
+	]
+}

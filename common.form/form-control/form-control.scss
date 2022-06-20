@@ -1,0 +1,62 @@
+/*=============== Form control component ===============*/
+@use 'sass:map';
+
+textarea.#{$form-control--class} {
+	resize: none;
+}
+
+[type='number'].#{$form-control--class} {
+	-moz-appearance: textfield; /* Firefox */
+
+	&::-webkit-outer-spin-button,
+	&::-webkit-inner-spin-button {
+		-webkit-appearance: none;
+		margin: 0;
+	}
+}
+
+.#{$form-control--class} {
+	transition: border-color $form-control--time;
+
+	padding: $form-control--padding-default;
+	font-family: $form-control--font-base;
+	font-size: 16px;
+
+	box-shadow: $form-control--box-shadow;
+	background: $form-control--background;
+	color: $form-control--text-color;
+
+	border: $form-control--border-size solid $form-control--border-color;
+	border-radius: $form-control--border-radius;
+
+	outline: none;
+
+	&.#{$form-control--focus-class},
+	&.#{$form-control--active-class} {
+		border-color: $form-control--border-color-active;
+
+		&::placeholder {
+			opacity: 0;
+		}
+	}
+
+	&.#{$form-control--active-class} {
+		box-shadow: $form-control--box-shadow-active;
+		color: $form-control--text-color-active;
+	}
+
+	&.#{$form-control--error-class} {
+		border-color: $form-control--error-color;
+	}
+
+	&::placeholder {
+		color: $form-control--text-color;
+	}
+}
+
+// Set ize
+@each $label, $map in $form-control--sizes {
+	.#{$form-control--class}_size_#{$label} {
+		padding: map.get($map, 'padding');
+	}
+}

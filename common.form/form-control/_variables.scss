@@ -1,0 +1,30 @@
+$form-control--class: 'form-control';
+$form-control--active-class: 'is-active';
+$form-control--focus-class: 'is-focused';
+$form-control--error-class: 'is-error';
+
+$form-control--time: 0.24s;
+
+$form-control--font-base: $font-base;
+
+$form-control--text-color: rgba(#000000, 0.6);
+$form-control--text-color-active: #000000;
+$form-control--error-color: red;
+
+$form-control--background: #ffffff;
+
+$form-control--border-color: #e0e0e0;
+$form-control--border-color-active: #333333;
+$form-control--border-size: 1px;
+$form-control--border-radius: 4px;
+
+$form-control--box-shadow: none;
+$form-control--box-shadow-active: none;
+
+$form-control--padding-default: 6px 12px;
+
+$form-control--sizes: (
+	'lg': (
+		'padding': 8px 16px,
+	),
+);

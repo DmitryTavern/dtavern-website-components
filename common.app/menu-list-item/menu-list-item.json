@@ -1,0 +1,6 @@
+{
+	"version": "1.0.0",
+	"name": "menu-list-item",
+	"namespace": "global",
+	"depends": ["common.app/btn"]
+}

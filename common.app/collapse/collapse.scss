@@ -1,0 +1,11 @@
+/*=============== Collapse component ===============*/
+
+.#{$collapse--class} {
+	transition: height $time-default;
+	height: 0;
+	overflow: hidden;
+
+	&.#{$collapse--show-class} {
+		height: auto;
+	}
+}

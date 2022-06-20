@@ -1,0 +1,38 @@
+$breadcrumbs--color: rgba(51, 51, 51, 0.6);
+$breadcrumbs--color-active: rgba(51, 51, 51, 1);
+
+.breadcrumbs {
+	padding: 20px 0;
+	width: 100%;
+	display: flex;
+	overflow-y: auto;
+	white-space: nowrap;
+
+	&::-webkit-scrollbar {
+		display: none;
+	}
+
+	li::after {
+		color: $breadcrumbs--color;
+	}
+
+	li:not(:last-child)::after,
+	li:last-child span::before {
+		content: '/';
+		margin-left: 10px;
+		margin-right: 10px;
+	}
+
+	li:first-child span::before {
+		content: unset;
+	}
+
+	a {
+		color: $breadcrumbs--color;
+	}
+
+	span,
+	span::before {
+		color: $breadcrumbs--color-active;
+	}
+}

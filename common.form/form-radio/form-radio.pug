@@ -1,0 +1,25 @@
+//- Props:
+//-   - name: string
+//-   - value: string
+//-   - classes: string
+//-   - checked: string
+//-   - required: string
+//-   - attrs: object
+
+mixin form-radio(props={})
+	-
+		var tagClass = 'form-radio'
+		var tagWrapperClass = 'form-radio-wrapper'
+
+	label(class=tagWrapperClass, class=props.classes)
+		input(
+			type='radio',
+			class=tagClass,
+			name=props.name,
+			value=props.value,
+			checked=props.checked,
+			required=props.required
+		)&attributes(props.attrs)
+
+		span
+			block

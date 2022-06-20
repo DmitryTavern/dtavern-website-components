@@ -1,0 +1,6 @@
+{
+	"version": "1.0.0",
+	"name": "form-group",
+	"namespace": "global",
+	"depends": ["common.form/form-control"]
+}

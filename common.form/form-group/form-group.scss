@@ -1,0 +1,45 @@
+/*=============== Form group component ===============*/
+@use 'sass:map';
+
+.#{$form-group--class} {
+	transition: border-color $form-control--time;
+	display: flex;
+	border: $form-control--border-size solid $form-control--border-color;
+	box-shadow: $form-control--box-shadow;
+	background: $form-control--background;
+	border-radius: $form-control--border-radius;
+
+	> .#{$form-control--class} {
+		width: 100%;
+		border: none;
+		background: none;
+		border-radius: none;
+		box-shadow: none;
+		padding: $form-control--padding-default;
+	}
+
+	&.#{$form-control--focus-class},
+	&.#{$form-control--active-class} {
+		border-color: $form-control--border-color-active;
+
+		> .#{$form-control--class}::placeholder {
+			opacity: 0;
+		}
+	}
+
+	&.#{$form-control--active-class} {
+		> .#{$form-control--class} {
+			color: $form-control--text-color-active;
+		}
+	}
+
+	&.#{$form-control--error-class} {
+		border-color: $form-control--error-color;
+	}
+}
+
+@each $label, $map in $form-control--sizes {
+	.#{$form-group--class}_size_#{$label} > .#{$form-control--class} {
+		padding: map.get($map, 'padding');
+	}
+}

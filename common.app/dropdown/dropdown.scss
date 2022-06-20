@@ -1,0 +1,58 @@
+/*=============== Dropdown component ===============*/
+
+.#{$dropdown--class} {
+	transition: visibility $dropdown--time;
+	animation: slideDownOut $dropdown--time forwards;
+	transform-origin: top;
+	position: absolute;
+	top: 100%;
+	left: 0;
+	visibility: hidden;
+	z-index: -1;
+
+	&.#{$dropdown--open-class} {
+		z-index: 1;
+		visibility: visible;
+		animation: slideDownIn $dropdown--time forwards;
+	}
+
+	&.top-full {
+		top: 100%;
+		left: 0;
+		right: 0;
+	}
+
+	&.top-right {
+		top: 100%;
+		left: 0;
+	}
+
+	&.top-left {
+		top: 100%;
+		right: 0;
+	}
+}
+
+@keyframes slideDownIn {
+	0% {
+		transform: scaleY(0.8);
+		opacity: 0;
+	}
+
+	to {
+		transform: scaleY(1);
+		opacity: 1;
+	}
+}
+
+@keyframes slideDownOut {
+	0% {
+		transform: scaleY(1);
+		opacity: 1;
+	}
+
+	to {
+		transform: scaleY(0.8);
+		opacity: 0;
+	}
+}

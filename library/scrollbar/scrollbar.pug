@@ -1,0 +1,12 @@
+//- Props:
+//-   - tag: string
+//-   - classes: string
+//-   - attrs: object
+
+mixin scrollbar(props={})
+	-
+		var tag = props.tag || 'div'
+		var tagClass = 'scrollbar'
+
+	#{tag}(class=tagClass, class=props.classes)&attributes(props.attrs)
+		block

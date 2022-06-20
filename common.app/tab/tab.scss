@@ -1,0 +1,16 @@
+/*=============== Tab component ===============*/
+
+.#{$tab--pane-class} {
+	transition: opacity $tab--pane-time, height $tab--pane-time,
+		max-height $tab--pane-time;
+	opacity: 0;
+	height: auto;
+	max-height: 0px;
+	overflow: hidden;
+
+	&.#{$tab--pane-active-class} {
+		opacity: 1;
+		height: auto;
+		max-height: 500px;
+	}
+}

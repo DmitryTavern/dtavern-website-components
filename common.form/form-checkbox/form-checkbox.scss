@@ -1,0 +1,56 @@
+/*=============== Form checkbox component ===============*/
+
+.#{$form-checkbox--class} {
+	transition: background-color $form-checkbox--time,
+		border-color $form-checkbox--time;
+	margin-top: calc((var(--checkbox-line-height) - #{$form-checkbox--size}) / 2);
+	min-width: $form-checkbox--size;
+	min-height: $form-checkbox--size;
+	width: $form-checkbox--size;
+	height: $form-checkbox--size;
+	border: $form-checkbox--border-size solid $form-checkbox--color;
+	background-color: $form-checkbox--background;
+	border-radius: $form-checkbox--border-radius;
+	margin-right: 10px;
+	appearance: none;
+
+	&::before {
+		transition: opacity $form-checkbox--time;
+		content: '';
+		display: block;
+		width: $form-checkbox--check-size;
+		height: $form-checkbox--check-size;
+		margin-top: $form-checkbox--position;
+		margin-left: $form-checkbox--position;
+		background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 492 492' xmlns='http://www.w3.org/2000/svg'%3E%3Cg clip-path='url(%23a)'%3E%3Cpath d='m188.4 429.8c-4.697 4.724-11.105 7.36-17.76 7.36-6.656 0-13.064-2.636-17.76-7.36l-141.84-141.86c-14.719-14.719-14.719-38.588 0-53.279l17.76-17.765c14.724-14.72 38.565-14.72 53.285 0l88.553 88.556 239.28-239.28c14.725-14.72 38.589-14.72 53.285 0l17.76 17.765c14.72 14.72 14.72 38.584 0 53.28l-292.56 292.59z' fill='%23000'/%3E%3C/g%3E%3Cdefs%3E%3CclipPath id='a'%3E%3Crect width='492' height='492' fill='%23000'/%3E%3C/clipPath%3E%3C/defs%3E%3C/svg%3E");
+		background-size: $form-checkbox--check-size;
+		background-repeat: no-repeat;
+		opacity: 0;
+	}
+}
+
+.#{$form-checkbox--wrapper-class} {
+	--checkbox-line-height: #{$form-checkbox--size};
+	display: flex;
+	align-items: flex-start;
+	line-height: var(--checkbox-line-height);
+	cursor: pointer;
+
+	&.#{$form-checkbox--checked-class} {
+		> .#{$form-checkbox--class} {
+			border-color: $form-checkbox--color-checked;
+
+			&::before {
+				opacity: 1;
+			}
+		}
+	}
+
+	&.#{$form-checkbox--error-class} {
+		color: $color-error;
+
+		> .#{$form-checkbox--class} {
+			border-color: $color-error;
+		}
+	}
+}
