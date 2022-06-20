@@ -101,9 +101,6 @@ export function formSelectComponentInit() {
 
 		const $parent = $select.parentElement
 
-		$parent.removeEventListener('click', formSelectClickHandler)
-		$select.removeEventListener('change', formSelectChangeHandler)
-
 		$parent.addEventListener('click', formSelectClickHandler)
 		$select.addEventListener('change', formSelectChangeHandler)
 
@@ -115,7 +112,6 @@ export function formSelectComponentInit() {
 		const $menuItems = $wrapper.querySelectorAll('[data-value]')
 
 		for (const $menuItem of $menuItems) {
-			$menuItem.removeEventListener('click', formSelectItemClickHandler)
 			$menuItem.addEventListener('click', formSelectItemClickHandler)
 		}
 	}

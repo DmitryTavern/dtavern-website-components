@@ -69,15 +69,11 @@ export function navbarComponentInit() {
 		}
 	}
 
-	for (const $menuClose of $menuCloses) {
-		$menuClose.removeEventListener('click', closeMenu)
+	for (const $menuClose of $menuCloses)
 		$menuClose.addEventListener('click', closeMenu)
-	}
 
-	$menuButton.removeEventListener('click', toggleMenu)
 	$menuButton.addEventListener('click', toggleMenu)
 
-	document.removeEventListener('scroll', scroll)
 	document.addEventListener('scroll', scroll)
 
 	scroll()

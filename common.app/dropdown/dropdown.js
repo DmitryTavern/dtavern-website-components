@@ -75,7 +75,6 @@ export function dropdownComponentInit() {
 	const $dropdownButtons = document.querySelectorAll(dropdownButtonSelector)
 
 	for (const $dropdownButton of $dropdownButtons) {
-		$dropdownButton.removeEventListener('click', dropdownClickHandler)
 		$dropdownButton.addEventListener('click', dropdownClickHandler)
 	}
 }
