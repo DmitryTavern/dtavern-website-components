@@ -1,13 +1,6 @@
 //- Props:
-//-   - id: string
 //-   - tag: 'input' | 'textarea'
-//-   - type: string
-//-   - name: string
 //-   - size: string
-//-   - classes: string
-//-   - required: boolean
-//-   - placeholder: string
-//-   - attrs: object
 
 mixin form-control(props={})
 	-
@@ -15,13 +8,4 @@ mixin form-control(props={})
 		var tagClass = 'form-control'
 		var tagSizeClas = props.size ? tagClass + '_size_' + props.size : ''
 
-	#{tag}(
-		id=props.id,
-		class=tagClass,
-		class=tagSizeClas,
-		class=props.classes,
-		type=props.type || 'text',
-		name=props.name,
-		required=props.required,
-		placeholder=props.placeholder
-	)&attributes(props.attrs)
+	#{tag}(class=tagClass, class=tagSizeClas)&attributes(attributes)

@@ -28,10 +28,8 @@ export function formSubmitHandler(event) {
 export function formComponentInit() {
 	const $forms = document.getElementsByTagName('form')
 
-	for (const $form of $forms) {
-		$form.removeEventListener('submit', formSubmitHandler)
+	for (const $form of $forms)
 		$form.addEventListener('submit', formSubmitHandler)
-	}
 }
 
 document.addEventListener('DOMContentLoaded', formComponentInit)

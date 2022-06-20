@@ -1,20 +1,22 @@
 //- Props:
 //-   - type: 'link' | 'button'
-//-		- href: string (only type === 'link')
+//-		- href: string (only when type === 'link')
 //-		- theme: string
-//-   - classes: string
-//-   - attrs: object
 
 mixin menu-list-item(props={})
 	-
 		var tagClass = 'menu-list-item'
 		var tagThemeClass = props.theme ? tagClass + '_theme_' + props.theme : ''
 
-	li(class=tagClass, class=props.classes, class=tagThemeClass)&attributes(props.attrs)
-		if props.type === 'link'
+	li(class=tagClass, class=tagThemeClass)&attributes(attributes)
+		if props.type === 'button'
+			button.btn(type='button')
+				block
+
+		else if props.type === 'link'
 			a(href=props.href)
 				block
 
-		if props.type === 'button'
-			button.btn(type='button')
+		else
+			span
 				block

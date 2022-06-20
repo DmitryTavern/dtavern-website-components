@@ -1,13 +1,3 @@
-//- Props:
-//-   - url: string
-//-   - method: 'POST' | 'GET'
-//-   - classes: string
-//-   - attrs: object
-
-mixin form(props={})
-	-
-		var url = props.url || '/'
-		var method = props.method || 'POST'
-
-	form(action=url, method=method, class=props.classes)&attributes(props.attrs)
+mixin form
+	form&attributes(attributes)
 		block

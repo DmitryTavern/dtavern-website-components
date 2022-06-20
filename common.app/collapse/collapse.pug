@@ -1,8 +1,5 @@
 //- Props:
-//-   - id: string
 //-   - show: boolean
-//-   - classes: string
-//-   - attrs: object
 
 mixin collapse(props={})
 	-
@@ -10,6 +7,6 @@ mixin collapse(props={})
 		var tagWrapperClass = 'collapse-wrapper'
 		var tagShowClass = props.show ? 'is-showed' : ''
 
-	div(id=props.id, class=tagClass, class=props.classes, class=tagShowClass)&attributes(props.attrs)
+	div(class=tagClass, class=tagShowClass)&attributes(attributes)
 		div(class=tagWrapperClass)
 			block

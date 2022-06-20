@@ -47,7 +47,7 @@ export function changeFormSelectValue($select, value) {
 
 	$select.dispatchEvent(new Event('change'))
 
-	closeDropdown(dropdownId)
+	closeDropdown('#' + dropdownId)
 }
 
 // Events and Handlers

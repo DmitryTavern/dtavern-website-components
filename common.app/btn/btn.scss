@@ -1,20 +1,36 @@
-.btn {
-	transition: all $btn--time;
+/*=============== Btn component ===============*/
+
+button,
+[type='button'],
+[type='reset'],
+[type='submit'] {
+	-webkit-appearance: button;
+}
+
+.#{$btn--class} {
+	transition: color $btn--time, background-color $btn--time,
+		border-color $btn--time, box-shadow $btn--time;
 	display: inline-block;
 	font-family: inherit;
 	font-size: inherit;
 	font-weight: inherit;
+	line-height: inherit;
 	border: none;
 	outline: none;
 	background: none;
 	cursor: pointer;
-	text-align: center;
+	overflow: visible;
+	user-select: none;
+	vertical-align: middle;
+	text-decoration: none;
 
 	&:disabled {
 		cursor: default;
+		pointer-events: none;
+		opacity: 0.65;
 	}
 }
 
-.btn-round {
+.#{$btn--round-class} {
 	border-radius: 50%;
 }

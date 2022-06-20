@@ -1,14 +1,11 @@
-//- Props:
-//-   - id: string
-
-mixin modal(props={})
+mixin modal
 	-
 		var tagClass = 'modal'
 		var tagCloseClass = 'modal-close'
 		var tagDialogClass = 'modal-dialog'
 		var tagContentClass = 'modal-content'
 
-	div(id=props.id, class=tagClass)
+	div(class=tagClass)&attributes(attributes)
 		div(class=tagDialogClass)
 			button.btn(class=tagCloseClass, data-dismiss, aria-label='Close modal')
 

@@ -5,6 +5,12 @@
 	height: 0;
 	overflow: hidden;
 
+	&.show,
+	&.collapsing {
+		height: unset;
+		overflow: unset;
+	}
+
 	&.#{$collapse--show-class} {
 		height: auto;
 	}

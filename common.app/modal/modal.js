@@ -14,19 +14,21 @@ export const modalActiveClass = 'is-active'
 
 // Actions
 export function openModal(id) {
-	const $el = document.getElementById(id)
+	const $el = document.querySelector(id)
 	if (!$el) return console.error(ERR_MODAL_NULL, id)
 	$el.classList.add(modalActiveClass)
 }
 
 export function closeModal(id) {
-	const $el = document.getElementById(id)
+	const $el = document.querySelector(id)
 	if (!$el) return console.error(ERR_MODAL_NULL, id)
 	$el.classList.remove(modalActiveClass)
 }
 
 // Events and Handlers
 export function modalClickHandler(event) {
+	if (bootstrap && bootstrap.Modal) return
+
 	const $modal = this
 	if (event.target !== $modal) return
 	const id = $modal.getAttribute('id')
@@ -34,6 +36,8 @@ export function modalClickHandler(event) {
 }
 
 export function modalButtonHandler() {
+	if (bootstrap && bootstrap.Modal) return
+
 	const $modal = this
 
 	let modalId = $modal.getAttribute('data-target')
@@ -46,6 +50,8 @@ export function modalButtonHandler() {
 }
 
 export function modalDisimisHandler() {
+	if (bootstrap && bootstrap.Modal) return
+
 	const $dismissButton = this
 
 	let $modal = $dismissButton.closest('.' + modalClass)

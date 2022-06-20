@@ -11,7 +11,6 @@ const WARN_NOT_ACTIVE = "[core/tab]: Don't use tabs without default active tab."
 
 export const tabContentClass = 'tab-content'
 export const tabControlWrapperClass = 'tab-controls'
-export const tabContentPaneClass = 'tab-pane'
 export const tabControlSelector = '[data-toggle="tab"]'
 export const tabActiveClass = 'is-active'
 
@@ -83,8 +82,7 @@ export function openTab(selector) {
 }
 
 // Events and Handlers
-export function tabControlClickHandler(event) {
-	event.preventDefault()
+export function tabControlClickHandler() {
 	const $tabControl = this
 	if ($tabControl.classList.contains(tabActiveClass)) return
 	const id = _getTargetFromTabControl($tabControl)
@@ -92,6 +90,8 @@ export function tabControlClickHandler(event) {
 }
 
 export function tabComponentInit() {
+	if (bootstrap && bootstrap.Tab) return
+
 	const $tabControls = document.querySelectorAll(tabControlSelector)
 
 	for (const $tabControl of $tabControls) {
@@ -99,13 +99,12 @@ export function tabComponentInit() {
 
 		// If group of controls have not active control
 		if (!$controls.querySelector('.' + tabActiveClass)) {
-			console.warn(WARN_NOT_ACTIVE, $controls)
+			console.warn(WARN_NOT_ACTIVE)
 			const $control = $controls.querySelector(tabControlSelector)
 			const id = _getTargetFromTabControl($control)
 			openTab(id)
 		}
 
-		$tabControl.removeEventListener('click', tabControlClickHandler)
 		$tabControl.addEventListener('click', tabControlClickHandler)
 	}
 }

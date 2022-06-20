@@ -12,7 +12,7 @@ export const dropdownOpenClass = 'is-opened'
 export const dropdownFocusClass = 'is-focused'
 
 function _getDropdownInfoById(id) {
-	const $dropdown = document.getElementById(id)
+	const $dropdown = document.querySelector(id)
 	const $buttons = document.querySelectorAll(
 		'[data-toggle="dropdown"][data-target="' + id + '"]'
 	)
@@ -21,22 +21,22 @@ function _getDropdownInfoById(id) {
 }
 
 // Actions
-export function openDropdown(dropdownId) {
+function _actionDropdown(action, dropdownId) {
 	const { $dropdown, $buttons } = _getDropdownInfoById(dropdownId)
-	for (const $btn of $buttons) $btn.classList.add(dropdownFocusClass)
-	$dropdown.classList.add(dropdownOpenClass)
+	for (const $btn of $buttons) $btn.classList[action](dropdownFocusClass)
+	$dropdown.classList[action](dropdownOpenClass)
+}
+
+export function openDropdown(dropdownId) {
+	_actionDropdown('add', dropdownId)
 }
 
 export function toggleDropdown(dropdownId) {
-	const { $dropdown, $buttons } = _getDropdownInfoById(dropdownId)
-	for (const $btn of $buttons) $btn.classList.toggle(dropdownFocusClass)
-	$dropdown.classList.toggle(dropdownOpenClass)
+	_actionDropdown('toggle', dropdownId)
 }
 
 export function closeDropdown(dropdownId) {
-	const { $dropdown, $buttons } = _getDropdownInfoById(dropdownId)
-	for (const $btn of $buttons) $btn.classList.remove(dropdownFocusClass)
-	$dropdown.classList.remove(dropdownOpenClass)
+	_actionDropdown('remove', dropdownId)
 }
 
 // Events and Handlers

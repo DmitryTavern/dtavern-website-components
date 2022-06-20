@@ -1,14 +1,12 @@
 //- Props:
 //-   - tag: string
-//-   - classes: string
-//-   - attrs: object
 
 mixin menu-list(props={})
 	-
 		var tag = props.tag || 'div'
 		var tagClass = 'menu-list'
 
-	#{tag}(class=tagClass, class=props.classes)&attributes(props.attrs)
+	#{tag}(class=tagClass)&attributes(attributes)
 		+scrollbar
 			ul.menu-list__list
 				block

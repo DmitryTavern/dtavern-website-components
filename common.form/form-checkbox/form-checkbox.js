@@ -25,7 +25,7 @@ export function formCheckboxComponentInit() {
 
 	for (const $checkbox of $formCheckboxes) {
 		if ($checkbox.checked) formCheckboxChangeHandler.call($checkbox)
-		$checkbox.removeEventListener('change', formCheckboxChangeHandler)
+
 		$checkbox.addEventListener('change', formCheckboxChangeHandler)
 	}
 }

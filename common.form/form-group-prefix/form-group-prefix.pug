@@ -1,7 +1,6 @@
 //- Props:
 //-   - tag: string
 //-   - type: string
-//-   - attrs: object
 
 mixin form-group-prefix(props={})
 	-
@@ -9,5 +8,5 @@ mixin form-group-prefix(props={})
 		var tagClass = 'form-group-prefix'
 		var tagTypeClass = props.type ? tagClass + '_type_' + props.type : ''
 
-	#{tag}(class=tagClass, class=props.classes, class=tagTypeClass)&attributes(props.attrs)
+	#{tag}(class=tagClass, class=tagTypeClass)&attributes(attributes)
 		block

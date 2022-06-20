@@ -34,7 +34,6 @@ export function formRadioComponentInit() {
 	for (const $radio of $formRadios) {
 		if ($radio.checked) formRadioChangeHandler.call($radio)
 
-		$radio.removeEventListener('change', formRadioChangeHandler)
 		$radio.addEventListener('change', formRadioChangeHandler)
 	}
 }

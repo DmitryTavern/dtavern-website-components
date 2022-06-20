@@ -74,10 +74,6 @@ export function formControlComponentInit() {
 	const $textareaControls = document.querySelectorAll(formTextareaSelector)
 
 	for (const $formControl of $formControls) {
-		$formControl.removeEventListener('input', formControlInputHandler)
-		$formControl.removeEventListener('focus', formControlFocusHandler)
-		$formControl.removeEventListener('blur', formControlBlurHandler)
-
 		$formControl.addEventListener('input', formControlInputHandler)
 		$formControl.addEventListener('focus', formControlFocusHandler)
 		$formControl.addEventListener('blur', formControlBlurHandler)
@@ -91,7 +87,6 @@ export function formControlComponentInit() {
 		if (height > 0) height += 'px'
 
 		$textarea.setAttribute('style', `height:${height};overflow-y:hidden;`)
-		$textarea.removeEventListener('input', formTextareaInputHandler, false)
 		$textarea.addEventListener('input', formTextareaInputHandler, false)
 	}
 }

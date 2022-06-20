@@ -1,7 +1,6 @@
 //- Props:
 //-   - tag: string
 //-   - size: string
-//-   - classes: string
 
 mixin form-group(props={})
 	-
@@ -9,5 +8,5 @@ mixin form-group(props={})
 		var tagClass = 'form-group'
 		var tagSizeClass = props.size ? tagClass + '_size_' + props.size : ''
 
-	#{tag}(class=tagClass, class=tagSizeClass, class=props.classes)&attributes(props.attrs)
+	#{tag}(class=tagClass, class=tagSizeClass)&attributes(attributes)
 		block

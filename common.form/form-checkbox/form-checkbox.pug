@@ -1,25 +1,13 @@
 //- Props:
-//-   - name: string
-//-   - value: string
-//-   - classes: string
-//-   - checked: string
-//-   - required: string
-//-   - attrs: object
+//-   - labelAttrs: object
 
 mixin form-checkbox(props={})
 	-
 		var tagClass = 'form-checkbox'
 		var tagWrapperClass = 'form-checkbox-wrapper'
 
-	label(class=tagWrapperClass, class=props.classes)
-		input(
-			type='checkbox',
-			class=tagClass,
-			name=props.name,
-			value=props.value,
-			checked=props.checked,
-			required=props.required
-		)&attributes(props.attrs)
+	label(class=tagWrapperClass)&attributes(props.labelAttrs)
+		input(type='checkbox', class=tagClass)&attributes(attributes)
 
 		span
 			block

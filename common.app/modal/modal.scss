@@ -1,4 +1,7 @@
 /*=============== Modal component ===============*/
+.modal-backdrop {
+	z-index: 14 !important;
+}
 
 .#{$modal--class} {
 	transition: opacity $modal--time, visibility $modal--time,
@@ -12,7 +15,8 @@
 	z-index: -1;
 	visibility: hidden;
 
-	&.#{$modal--active-class} {
+	&.#{$modal--active-class},
+	&.show {
 		transition: opacity $modal--time, visibility $modal--time;
 		opacity: 1;
 		z-index: 15;

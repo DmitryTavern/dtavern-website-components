@@ -2,6 +2,7 @@
 
 .#{$menu-list-item--class} {
 	> a,
+	> span,
 	> button {
 		text-align: left;
 		width: 100%;
