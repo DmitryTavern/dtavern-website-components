@@ -90,7 +90,7 @@ export function tabControlClickHandler() {
 }
 
 export function tabComponentInit() {
-	if (bootstrap && bootstrap.Tab) return
+	if (window.bootstrap && window.bootstrap.Tab) return
 
 	const $tabControls = document.querySelectorAll(tabControlSelector)
 

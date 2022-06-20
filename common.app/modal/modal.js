@@ -27,7 +27,7 @@ export function closeModal(id) {
 
 // Events and Handlers
 export function modalClickHandler(event) {
-	if (bootstrap && bootstrap.Modal) return
+	if (window.bootstrap && window.bootstrap.Modal) return
 
 	const $modal = this
 	if (event.target !== $modal) return
@@ -36,7 +36,7 @@ export function modalClickHandler(event) {
 }
 
 export function modalButtonHandler() {
-	if (bootstrap && bootstrap.Modal) return
+	if (window.bootstrap && window.bootstrap.Modal) return
 
 	const $modal = this
 
@@ -50,7 +50,7 @@ export function modalButtonHandler() {
 }
 
 export function modalDisimisHandler() {
-	if (bootstrap && bootstrap.Modal) return
+	if (window.bootstrap && window.bootstrap.Modal) return
 
 	const $dismissButton = this
 

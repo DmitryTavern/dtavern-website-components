@@ -58,7 +58,7 @@ export function collapseComponentInit() {
 	const $collapses = document.getElementsByClassName(collapseClass)
 	const $collapseButtons = document.querySelectorAll(collapseToggleSelector)
 
-	if (bootstrap && bootstrap.Collapse) {
+	if (window.bootstrap && window.bootstrap.Collapse) {
 		for (const $collapse of $collapses)
 			$collapse.classList.remove(collapseShowClass)
 		return
