@@ -7,6 +7,7 @@ const ERR_CONTROLS_NULL = '[core/tab]: Tab control wrapper not found'
 const ERR_CONTROL_NULL = '[core/tab]: Tab control not found. Selector: '
 const ERR_CONTENT_NULL = '[core/tab]: Tab pane wrapper not found'
 const ERR_TAB_NULL = '[core/tab]: Tab id not found. Tab control: '
+const WARN_NOT_ACTIVE = "[core/tab]: Don't use tabs without default active tab."
 
 export const tabContentClass = 'tab-content'
 export const tabControlWrapperClass = 'tab-controls'
@@ -82,7 +83,8 @@ export function openTab(selector) {
 }
 
 // Events and Handlers
-export function tabControlClickHandler() {
+export function tabControlClickHandler(event) {
+	event.preventDefault()
 	const $tabControl = this
 	if ($tabControl.classList.contains(tabActiveClass)) return
 	const id = _getTargetFromTabControl($tabControl)
@@ -97,6 +99,7 @@ export function tabComponentInit() {
 
 		// If group of controls have not active control
 		if (!$controls.querySelector('.' + tabActiveClass)) {
+			console.warn(WARN_NOT_ACTIVE, $controls)
 			const $control = $controls.querySelector(tabControlSelector)
 			const id = _getTargetFromTabControl($control)
 			openTab(id)

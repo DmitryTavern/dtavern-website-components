@@ -1,30 +1,60 @@
-const navbarFixedClass = 'is-fixed'
-const lockedScrollClass = 'locked-scroll'
-const navbarMenuOpenedClass = 'is-menu-opened'
+/**
+ *	Navbar component initial
+ *	------------------------
+ **/
+
+const ERR_NAVBAR_NULL = '[core/navbar]: Navbar not found. Script skipped'
 
 export const navbarClass = 'navbar'
 export const navbarWrapperClass = 'navbar-wrapper'
 export const navbarMenuBtnClass = 'navbar__menu-btn'
 export const navbarMenuCloseBtnClass = 'navbar__close-menu-btn'
+export const navbarScrollSelector = 'body'
+export const navbarFixedClass = 'is-fixed'
+export const navbarActiveClass = 'is-active'
+export const lockedScrollClass = 'locked-scroll'
+export const navbarMenuOpenedClass = 'is-menu-opened'
 
-export function toggleNavbar() {
-	document.querySelector('body').classList.toggle(lockedScrollClass)
+// Actions
+export function openMenu() {
+	document.querySelector(navbarScrollSelector).classList.add(lockedScrollClass)
+	document.querySelector('.' + navbarClass).classList.add(navbarMenuOpenedClass)
+	document
+		.querySelector('.' + navbarMenuBtnClass)
+		.classList.add(navbarActiveClass)
+}
+export function toggleMenu() {
+	document
+		.querySelector(navbarScrollSelector)
+		.classList.toggle(lockedScrollClass)
 	document
 		.querySelector('.' + navbarClass)
 		.classList.toggle(navbarMenuOpenedClass)
+	document
+		.querySelector('.' + navbarMenuBtnClass)
+		.classList.toggle(navbarActiveClass)
+}
+export function closeMenu() {
+	document
+		.querySelector(navbarScrollSelector)
+		.classList.remove(lockedScrollClass)
+	document
+		.querySelector('.' + navbarClass)
+		.classList.remove(navbarMenuOpenedClass)
+	document
+		.querySelector('.' + navbarMenuBtnClass)
+		.classList.remove(navbarActiveClass)
 }
 
-document.addEventListener('DOMContentLoaded', function () {
+// Events and Handlers
+export function navbarComponentInit() {
 	const $navbar = document.querySelector('.' + navbarClass)
 	const $wrapper = document.querySelector('.' + navbarWrapperClass)
 	const $menuButton = document.querySelector('.' + navbarMenuBtnClass)
-	const $menuCloses = document.querySelectorAll('.' + navbarMenuCloseBtnClass)
+	const $menuCloses = document.getElementsByClassName(navbarMenuCloseBtnClass)
 	let fixedHeight = 0
 
-	if (!($navbar && $wrapper)) {
-		console.error('[core/navbar]: Navbar not found. Script skipped')
-		return
-	}
+	if (!($navbar && $wrapper)) return console.error(ERR_NAVBAR_NULL)
 
 	const scroll = () => {
 		const { top } = $navbar.getBoundingClientRect()
@@ -39,12 +69,18 @@ document.addEventListener('DOMContentLoaded', function () {
 		}
 	}
 
-	for (const $menuClose of $menuCloses)
-		$menuClose.addEventListener('click', toggleNavbar)
+	for (const $menuClose of $menuCloses) {
+		$menuClose.removeEventListener('click', closeMenu)
+		$menuClose.addEventListener('click', closeMenu)
+	}
 
-	$menuButton.addEventListener('click', toggleNavbar)
+	$menuButton.removeEventListener('click', toggleMenu)
+	$menuButton.addEventListener('click', toggleMenu)
 
+	document.removeEventListener('scroll', scroll)
 	document.addEventListener('scroll', scroll)
 
 	scroll()
-})
+}
+
+document.addEventListener('DOMContentLoaded', navbarComponentInit)

@@ -5,7 +5,7 @@
 
 const ERR_CS_PS_NULL = '[core/scrollbar]: "PerfectScrollbar" is not defined'
 
-export const scrollbarClass = 'custom-scrollbar'
+export const scrollbarClass = 'scrollbar'
 
 export function scrollbarComponentInit() {
 	if (!PerfectScrollbar) return console.error(ERR_CS_PS_NULL)

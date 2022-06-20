@@ -17,6 +17,7 @@ mixin form-select(props={})
 		var dropdownId = props.id + '-dropdown'
 		var dropdownProps = { id: dropdownId, position: 'top-full' }
 
+		var placeholder = props.placeholder ? props.placeholder : 'Empty select'
 		var valueExists = props.options.filter((e) => e.selected).length
 		var suffixProps = { type: 'selector' }
 		var groupProps = {
@@ -30,11 +31,11 @@ mixin form-select(props={})
 	div(class=tagWrapperClass)
 		+form-group(groupProps)
 			select(id=props.id, name=props.name, class=tagClass)
-				option(value='', disabled, selected=!valueExists) #{ props.placeholder }
+				option(value='', disabled, selected=!valueExists) #{ placeholder }
 				each option in props.options
 					option(value=option.value, selected=option.selected) #{ option.name }
 
-			div(class=tagControlClass) #{ props.placeholder }
+			div(class=tagControlClass) #{ placeholder }
 
 			+form-group-suffix(suffixProps)
 				+sprite('icon-arrow-down')

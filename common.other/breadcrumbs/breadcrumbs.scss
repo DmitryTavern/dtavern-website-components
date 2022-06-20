@@ -1,3 +1,5 @@
+/*=============== Breadcrumbs component ===============*/
+
 $breadcrumbs--color: rgba(51, 51, 51, 0.6);
 $breadcrumbs--color-active: rgba(51, 51, 51, 1);
 
@@ -23,7 +25,7 @@ $breadcrumbs--color-active: rgba(51, 51, 51, 1);
 		margin-right: 10px;
 	}
 
-	li:first-child span::before {
+	li:not(:last-child):first-child span::before {
 		content: unset;
 	}
 

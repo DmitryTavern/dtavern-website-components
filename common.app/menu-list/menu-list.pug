@@ -9,6 +9,6 @@ mixin menu-list(props={})
 		var tagClass = 'menu-list'
 
 	#{tag}(class=tagClass, class=props.classes)&attributes(props.attrs)
-		+custom-scrollbar
+		+scrollbar
 			ul.menu-list__list
 				block

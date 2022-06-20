@@ -1,4 +1,9 @@
-mixin breadcrumbs(array)
+//- Props:
+//-   - array[]
+//-     - title: string
+//-     - href: string
+
+mixin breadcrumbs(array=[])
 	ul.breadcrumbs
 		each item, index in array
 			if array.length - 1 !== index
